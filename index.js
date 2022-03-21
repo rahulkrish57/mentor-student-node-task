@@ -3,8 +3,6 @@ const express = require('express');
 const mongodb = require("mongodb");
 const cors = require("cors");
 
-const userAuth = require("./userAuth");
-
 const port = process.env.port || 3000;
 const app = express();
 
@@ -13,7 +11,6 @@ const objectID = mongodb.ObjectId;
 const dbUrl =  process.env.DB_URL;
 app.use(express.json());
 app.use(cors());
-app.use("/auth", userAuth);
 
 app.get("/", async (req, res) => {
   try {
